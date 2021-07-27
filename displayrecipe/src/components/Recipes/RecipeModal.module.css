@@ -1,0 +1,27 @@
+.title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+  height: 30px;
+}
+
+.image {
+  margin: auto;
+}
+
+.image img {
+  display: block;
+  width: 160px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.details {
+  color: gray;
+}
+
+a {
+  text-decoration: none !important;
+  color: gray;
+}

@@ -1,0 +1,71 @@
+.container {
+  margin: 0;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  /* border: 1px solid black; */
+}
+
+.card {
+  margin: 10px auto;
+  /* margin-left: 5%; */
+  /* float: left; */
+  padding: 2px;
+  border: 1px solid rgb(121, 121, 121);
+  width: 370px;
+  height: 100px;
+}
+
+.title {
+  color: black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10px;
+  text-transform: capitalize;
+  /* font-weight: 500; */
+}
+
+.image {
+  float: left;
+  margin: 10px;
+}
+
+.image img {
+  border-radius: 5px;
+}
+
+.details {
+  color: gray;
+  margin-top: 10px;
+}
+.url {
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none !important;
+  color: gray;
+}
+
+.time,
+.servings {
+  color: rgb(107, 80, 45);
+}
+
+.btn {
+  margin-top: 10px;
+  /* margin-right: 155px;
+  margin-left: 150px; */
+}
+
+button {
+  border: 1px solid #3498db;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 2px;
+  float: left;
+  margin-right: 5px;
+}

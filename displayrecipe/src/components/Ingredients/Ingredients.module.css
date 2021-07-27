@@ -1,0 +1,57 @@
+.center {
+  margin: auto;
+  width: 90%;
+}
+
+.heading {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  text-align: center;
+  overflow-y: scroll;
+  height: 680px;
+}
+
+.main::-webkit-scrollbar {
+  width: 10px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: #d4aa70;
+  border-radius: 100px;
+}
+
+/* .main::-webkit-scrollbar {
+  display: none;
+} */
+
+.container {
+  border-radius: 3px;
+  background: gray;
+  width: 200px;
+  height: 85px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.description {
+  color: black;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.quantityUnit {
+  color: black;
+}
