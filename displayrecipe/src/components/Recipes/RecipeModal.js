@@ -5,6 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import classesmodal from './RecipeModal.module.css';
 import LinkIcon from '@material-ui/icons/Link';
+import Table from 'react-bootstrap/Table';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -72,7 +73,26 @@ export default function TransitionsModal(props) {
               <span>{data.servings} servings</span>
             </div>
             <p>{data.publisher}</p>
-            <p>Ingredients :</p>
+            <Table bordered hover variant='dark' className={classesmodal.table}>
+              <thead>
+                <tr className={classesmodal.tabletitle}>
+                  <th>Ingredients</th>
+                  <th>Quantity</th>
+                  <th>Unit</th>
+                </tr>
+              </thead>
+              {data.ingredients.map((data, idx) => {
+                return (
+                  <tbody key={idx}>
+                    <tr>
+                      <td>{data.description}</td>
+                      <td>{data.quantity}</td>
+                      <td>{data.unit}</td>
+                    </tr>
+                  </tbody>
+                );
+              })}
+            </Table>
           </div>
         </Fade>
       </Modal>
