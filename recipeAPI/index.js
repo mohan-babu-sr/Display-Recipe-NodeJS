@@ -12,8 +12,6 @@ app.use(bodyParser.json());
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 
-// app.use('/', require('./controllers/userRecipe'));
-
 app.use('/postRecipe', postRecipeRoutes);
 
 app.listen(4060, () => {
