@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Ingredients.module.css';
 
-let unique;
 const Ingredients = props => {
   let allIngredients = [];
   const data = props.PostRecipesIngredients;
@@ -16,16 +15,12 @@ const Ingredients = props => {
     }
   }
 
-  //
-  console.log(allIngredients.length);
-
-  // unique = new Set(allIngredients.map(a => a.description.toLowerCase().trim()));
+  // Ingredient Duplicate Test
   let count = 0,
     des,
     qn = 0;
   allIngredients.map(data => {
     des = data.description.toLowerCase().trim();
-    // console.log(des);
     if (des === 'olive oil') {
       qn += data.quantity;
       return count++;

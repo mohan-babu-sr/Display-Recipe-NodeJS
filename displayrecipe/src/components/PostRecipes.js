@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/postRecipe';
 import Recipes from './Recipes/Recipes';
 import Spinner from './Spinner/spinner';
 
-let weekData, recipeData;
+let recipeData;
 
 const PostRecipes = props => {
   recipeData = props.postRecipeList;
 
   let check = 0;
   if (recipeData[0] === undefined) {
-    console.log('weekData fetching..!');
-    // console.log(recipeData.length);
+    console.log('fetching recipes..!');
   } else {
     check = 1;
-    // console.log(recipeData.length);
   }
 
   useEffect(() => {

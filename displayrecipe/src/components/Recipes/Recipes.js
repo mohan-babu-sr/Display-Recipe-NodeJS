@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Ingredients from '../Ingredients/Ingredients';
 import classes from '../PostRecipes.module.css';
 import RecipeModal from './RecipeModal';
 const Recipes = props => {
   const weekData = props.data;
-  // console.log(weekData);
   const [changeData, setChangeData] = useState(weekData);
   const clicked = (data, ids) => {
     console.log(data._id);
