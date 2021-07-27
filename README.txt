@@ -6,5 +6,6 @@ Note : Run "npm install" then proceed
 2.recipeAPI ( npm start )
 
 Recipes will store in MongoDB Atlas ( cloud ) in the format given below :
-->Database Name : recipes
-->Collection Name : userrecipes
+->Database Name : recipesapp
+->Collection Name : recipes ( 2416 recipe )
+->Collection Name : userrecipes ( 21 recipe )
