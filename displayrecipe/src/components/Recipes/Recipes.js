@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Ingredients from '../Ingredients/Ingredients';
 import classes from '../PostRecipes.module.css';
 import RecipeModal from './RecipeModal';
+import * as actions from '../../actions/postRecipe';
+import { connect } from 'react-redux';
+
 const Recipes = props => {
   const weekData = props.data;
   const [changeData, setChangeData] = useState(weekData);
-  const clicked = (data, ids) => {
-    console.log(data._id);
 
-    weekData.splice(ids, 1);
+  const changeRecipe = data => {
+    console.log(data);
 
-    let changeRecipe = Math.floor(Math.random() * 2416);
-
-    weekData.splice(ids, 0, props.recipeData[changeRecipe]);
-    setChangeData(weekData);
-
-    console.log(weekData);
+    const values = {
+      _id: data._id,
+      title: data.title,
+      cooking_time: data.cooking_time,
+      image_url: data.image_url,
+      ingredients: data.ingredients,
+      publisher: data.publisher,
+      servings: data.servings,
+      source_url: data.source_url,
+    };
+    props.updateRecipe(values._id, values);
   };
 
   return (
@@ -55,7 +62,8 @@ const Recipes = props => {
               </div>
 
               <div className={classes.btn}>
-                <button onClick={e => clicked(data, id)}>Change</button>
+                {/* <button onClick={e => clicked(data, id)}>Change</button> */}
+                <button onClick={e => changeRecipe(data)}>Change</button>
               </div>
               <RecipeModal modalData={data} />
             </div>
@@ -68,4 +76,11 @@ const Recipes = props => {
   );
 };
 
-export default Recipes;
+const mapStateToProps = state => ({
+  data: state.postRecipe.list,
+});
+
+const mapActionToProps = {
+  updateRecipe: actions.update,
+};
+export default connect(mapStateToProps, mapActionToProps)(Recipes);

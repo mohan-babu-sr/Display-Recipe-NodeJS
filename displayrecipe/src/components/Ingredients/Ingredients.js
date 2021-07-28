@@ -16,17 +16,17 @@ const Ingredients = props => {
   }
 
   // Ingredient Duplicate Test
-  let count = 0,
-    des,
-    qn = 0;
-  allIngredients.map(data => {
-    des = data.description.toLowerCase().trim();
-    if (des === 'olive oil') {
-      qn += data.quantity;
-      return count++;
-    }
-    console.log('olive oil', qn);
-  });
+  // let count = 0,
+  //   des,
+  //   qn = 0;
+  // allIngredients.map(data => {
+  //   des = data.description.toLowerCase().trim();
+  //   if (des === 'olive oil') {
+  //     qn += data.quantity;
+  //     return count++;
+  //   }
+  //   console.log('olive oil', qn);
+  // });
   //
 
   return (

@@ -11,6 +11,13 @@ export const postRecipe = (state = initialState, action) => {
         ...state,
         list: [...action.payload],
       };
+    case ACTION_TYPES.UPDATE:
+      return {
+        ...state,
+        list: state.list.map(x =>
+          x._id == action.payload._id ? action.payload : x
+        ),
+      };
     default:
       return state;
   }

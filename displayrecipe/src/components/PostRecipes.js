@@ -11,9 +11,10 @@ const PostRecipes = props => {
 
   let check = 0;
   if (recipeData[0] === undefined) {
-    console.log('fetching recipes..!');
+    console.log('Fetching Recipes..!');
   } else {
     check = 1;
+    console.log('Fetching Done..!');
   }
 
   useEffect(() => {
