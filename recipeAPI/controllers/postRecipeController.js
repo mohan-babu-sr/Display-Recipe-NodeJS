@@ -1,7 +1,6 @@
 const { PostRecipe } = require('../modals/postRecipe');
 const Recipe = require('../modals/userRecipe');
 const ObjectID = require('mongoose').Types.ObjectId;
-
 let newRecipe,
   title,
   cooking_time,
@@ -50,42 +49,52 @@ exports.updateRecipe = (req, res, next) => {
 
 // Fetch 21 recipe
 exports.getRecipes = (req, res, next) => {
-  // Recipe.deleteMany()
-  //   .then(() => {
-  //     console.log('-----------recipes removed..!');
-  //   })
-  //   .catch(err => console.log('No data found'));
-
-  PostRecipe.aggregate([{ $sample: { size: 2 } }]).then(data => {
-    for (let i in data) {
-      cooking_time = data[i].cooking_time;
-      image_url = data[i].image_url;
-      ingredients = data[i].ingredients;
-      publisher = data[i].publisher;
-      servings = data[i].servings;
-      source_url = data[i].source_url;
-      title = data[i].title;
-      console.log('recipe adding');
-
-      newRecipe = new Recipe({
-        cooking_time,
-        image_url,
-        ingredients,
-        publisher,
-        servings,
-        source_url,
-        title,
-      });
-      newRecipe.save();
-    }
-
-    Recipe.find()
-      .then(data => {
-        console.log(data.length);
-        return res.send(data);
-      })
-      .catch(err => console.log('No data found'));
-
-    // return res.send(data);
+  // console.log(req.cookies, req.session);
+  PostRecipe.aggregate([{ $sample: { size: 21 } }]).then(data => {
+    // req.session.data = data;
+    res.setHeader('Set-Cookie', 'dataFetched = true');
+    req.session.save();
+    return res.send(data);
   });
 };
+
+// exports.getRecipes = (req, res, next) => {
+//   Recipe.deleteMany()
+//     .then(() => {
+//       console.log('-----------recipes removed..!');
+//     })
+//     .catch(err => console.log('No data found'));
+
+//   PostRecipe.aggregate([{ $sample: { size: 2 } }]).then(data => {
+//     for (let i in data) {
+//       cooking_time = data[i].cooking_time;
+//       image_url = data[i].image_url;
+//       ingredients = data[i].ingredients;
+//       publisher = data[i].publisher;
+//       servings = data[i].servings;
+//       source_url = data[i].source_url;
+//       title = data[i].title;
+//       console.log('recipe adding');
+
+//       newRecipe = new Recipe({
+//         cooking_time,
+//         image_url,
+//         ingredients,
+//         publisher,
+//         servings,
+//         source_url,
+//         title,
+//       });
+//       newRecipe.save();
+//     }
+
+//     Recipe.find()
+//       .then(data => {
+//         console.log(data.length);
+//         return res.send(data);
+//       })
+//       .catch(err => console.log('No data found'));
+
+//     // return res.send(data);
+//   });
+// };
