@@ -38,64 +38,73 @@ export default function TransitionsModal(props) {
       <button type='button' onClick={handleOpen}>
         View
       </button>
-      <Modal
-        aria-labelledby='transition-modal-title'
-        aria-describedby='transition-modal-description'
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 className={classesmodal.title}>{data.title}</h2>
-            <div className={classesmodal.image}>
-              <img src={data.image_url} alt='Not Found!'></img>
-            </div>
-            <div className={classesmodal.details}>
-              <div>
-                <span>
-                  <a
-                    href={data.source_url}
-                    target='_blank'
-                    title='click to view details of recipe!'
-                  >
-                    <LinkIcon />
-                  </a>
-                </span>
+      <div className={classes.modalview}>
+        <Modal
+          aria-labelledby='transition-modal-title'
+          aria-describedby='transition-modal-description'
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 className={classesmodal.title}>{data.title}</h2>
+              <div className={classesmodal.image}>
+                <img src={data.image_url} alt='Not Found!'></img>
               </div>
-              <span title='cooking time of recipe!'>{data.cooking_time}m</span>
-              &nbsp;•&nbsp;
-              <span>{data.servings} servings</span>
+              <div className={classesmodal.details}>
+                <div>
+                  <span>
+                    <a
+                      href={data.source_url}
+                      target='_blank'
+                      title='click to view details of recipe!'
+                    >
+                      <LinkIcon />
+                    </a>
+                  </span>
+                </div>
+                <span title='cooking time of recipe!'>
+                  {data.cooking_time}m
+                </span>
+                &nbsp;•&nbsp;
+                <span>{data.servings} servings</span>
+              </div>
+              <p>{data.publisher}</p>
+              <Table
+                bordered
+                hover
+                variant='dark'
+                className={classesmodal.table}
+              >
+                <thead>
+                  <tr className={classesmodal.tabletitle}>
+                    <th>Ingredients</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                  </tr>
+                </thead>
+                {data.ingredients.map((data, idx) => {
+                  return (
+                    <tbody key={idx}>
+                      <tr>
+                        <td>{data.description}</td>
+                        <td>{data.quantity}</td>
+                        <td>{data.unit}</td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </Table>
             </div>
-            <p>{data.publisher}</p>
-            <Table bordered hover variant='dark' className={classesmodal.table}>
-              <thead>
-                <tr className={classesmodal.tabletitle}>
-                  <th>Ingredients</th>
-                  <th>Quantity</th>
-                  <th>Unit</th>
-                </tr>
-              </thead>
-              {data.ingredients.map((data, idx) => {
-                return (
-                  <tbody key={idx}>
-                    <tr>
-                      <td>{data.description}</td>
-                      <td>{data.quantity}</td>
-                      <td>{data.unit}</td>
-                    </tr>
-                  </tbody>
-                );
-              })}
-            </Table>
-          </div>
-        </Fade>
-      </Modal>
+          </Fade>
+        </Modal>
+      </div>
     </div>
   );
 }

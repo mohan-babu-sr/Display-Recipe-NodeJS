@@ -4,10 +4,63 @@ import classes from '../PostRecipes.module.css';
 import RecipeModal from './RecipeModal';
 import * as actions from '../../actions/postRecipe';
 import { connect } from 'react-redux';
+const moment = require('moment');
 
+let dataID = [];
 const Recipes = props => {
   const weekData = props.data;
+  console.log(weekData);
+  const ID = JSON.parse(localStorage.getItem('IDArray'));
   const [changeData, setChangeData] = useState(weekData);
+  const [storeData, setStoreData] = useState(ID);
+
+  weekData.map(data => {
+    dataID.push(data);
+  });
+
+  //
+  const currentDate = new Date().toISOString().slice(0, 10);
+  console.log(currentDate);
+
+  function getDateOfWeekday(refday) {
+    var days = {
+      monday: 1,
+      tuesday: 2,
+      wednesday: 3,
+      thursday: 4,
+      friday: 5,
+      saturday: 6,
+      sunday: 0,
+    };
+    if (!days.hasOwnProperty(refday))
+      throw new Error(refday + ' is not listed in ' + JSON.stringify(days));
+    var currDate = new Date();
+    var currTimestamp = currDate.getTime();
+    var triggerDay = days[refday];
+    var dayMillDiff = 0;
+    var dayInMill = 1000 * 60 * 60 * 24;
+    while (currDate.getDay() != triggerDay) {
+      dayMillDiff += dayInMill;
+      currDate = new Date(currDate.getTime() + dayInMill);
+    }
+    return currDate.toISOString().slice(0, 10);
+  }
+
+  var saturday = getDateOfWeekday('saturday');
+
+  let checkDate = moment(currentDate).isBefore(saturday);
+  console.log(checkDate);
+  //
+
+  const IDDATA = ID ? 'data' : 'empty';
+
+  if (IDDATA === 'empty' || checkDate === false) {
+    setStoreData(changeData);
+    localStorage.setItem('IDArray', JSON.stringify(dataID));
+    console.log('data added to local storage');
+  } else {
+    console.log('local storage data avaliable');
+  }
 
   const changeRecipe = data => {
     console.log(data);
@@ -25,10 +78,14 @@ const Recipes = props => {
     props.updateRecipe(values._id, values);
   };
 
+  useEffect(() => {
+    setStoreData(ID);
+  }, [IDDATA]);
+
   return (
     <div>
       <div className={classes.container}>
-        {Object.entries(changeData).map(([id, data]) => {
+        {Object.entries(storeData).map(([id, data]) => {
           return (
             <div key={id} className={classes.card}>
               <div className={classes.image}>
