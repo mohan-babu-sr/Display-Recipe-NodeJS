@@ -35,8 +35,8 @@ exports.updateRecipe = (req, res, next) => {
       { new: true },
       (err, docs) => {
         if (!err) {
-          // console.log('findByIdAndUpdate');
-          res.send(docs);
+          console.log('findByIdAndUpdate');
+          res.send(updateRecipe);
         } else
           console.log(
             'Error while Updating a records: ' +
@@ -49,13 +49,21 @@ exports.updateRecipe = (req, res, next) => {
 
 // Fetch 21 recipe
 exports.getRecipes = (req, res, next) => {
-  // console.log(req.cookies, req.session);
-  PostRecipe.aggregate([{ $sample: { size: 21 } }]).then(data => {
-    // req.session.data = data;
-    res.setHeader('Set-Cookie', 'dataFetched = true');
-    req.session.save();
-    return res.send(data);
-  });
+  console.log(req.session.id);
+  console.log(req.session.isClient);
+  if (!req.session.isClient) {
+    req.session.isClient = true;
+    console.log('session added...!');
+
+    PostRecipe.aggregate([{ $sample: { size: 21 } }]).then(data => {
+      // res.setHeader('Set-Cookie', `dataFetched =${data} `);
+      // req.session.save();
+      return res.send(data);
+    });
+  } else {
+    console.log('session already there...!');
+    return res.send('data avaliable in local storage..!');
+  }
 };
 
 // exports.getRecipes = (req, res, next) => {
