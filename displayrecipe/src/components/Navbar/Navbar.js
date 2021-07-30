@@ -5,7 +5,10 @@ const Navbar = () => {
   return (
     <div className={classes.main}>
       <div className={classes.container}>
-        <img src='https://img.icons8.com/color/48/000000/cookbook.png' />
+        <img
+          src='https://img.icons8.com/color/48/000000/cookbook.png'
+          alt='LOGO'
+        />
         <p className={classes.logo}>Recipes</p>
       </div>
     </div>

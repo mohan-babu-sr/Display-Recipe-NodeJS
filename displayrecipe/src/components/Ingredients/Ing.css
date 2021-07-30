@@ -1,0 +1,125 @@
+.checkdata {
+  float: right;
+}
+.checktitle {
+  width: 220px;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1rem;
+  color: rgb(58, 56, 56);
+}
+
+.container {
+  /* width: 90%;*/
+  font-size: 13px;
+}
+
+.ingscroll {
+  margin: 0;
+  overflow-y: scroll;
+  height: 680px;
+  border: 1px solid #8c2230;
+  background: rgba(0, 0, 0, 0.192);
+  border-radius: 5px;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.ingscroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ingscroll::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.ingscroll::-webkit-scrollbar-thumb {
+  background-color: #7770d4;
+  border-radius: 100px;
+}
+
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 20px;
+}
+
+ul.ks-cboxtags li {
+  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: inline;
+}
+
+ul.ks-cboxtags li label {
+  display: inline-block;
+  background-color: #f0e1db;
+  border: 2px solid rgba(139, 139, 139, 0.3);
+  color: #727070;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: '✔';
+  color: #f0e1db;
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type='checkbox']:checked + label::before {
+  content: '✔';
+  color: rgb(165, 80, 11);
+  transform: rotate(-360deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type='checkbox']:checked + label {
+  border: 1px solid #1bdbf8;
+  background-color: #5fa582;
+  color: rgb(80, 80, 80);
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li input[type='checkbox'] {
+  display: absolute;
+}
+
+ul.ks-cboxtags li input[type='checkbox'] {
+  /* position: absolute; */
+  opacity: 0;
+}
+
+ul.ks-cboxtags li input[type='checkbox']:focus + label {
+  border: 2px solid #e9a1ff;
+}
+
+/*  */
+.heading {
+  margin-top: 40px;
+  color: #fff;
+  font-size: 2rem;
+}

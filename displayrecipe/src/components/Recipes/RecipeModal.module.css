@@ -3,15 +3,18 @@
 }
 
 .title {
+  width: 620px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  text-transform: capitalize;
+  text-transform: uppercase;
   height: 30px;
+  color: black;
 }
 
 .image {
-  margin: auto;
+  padding: 10px 10px 10px 0px;
+  float: left;
 }
 
 .image img {
@@ -22,6 +25,11 @@
 }
 
 .details {
+  padding: 10px 10px 10px 0px;
+  color: gray;
+}
+
+.publisher {
   color: gray;
 }
 
@@ -32,14 +40,31 @@ a {
 
 .table {
   text-transform: capitalize;
-  color: rgb(17, 104, 180);
+  color: rgb(0, 0, 0);
+}
+
+.tablescroll {
+  margin-top: -19px;
+  height: 290px;
   overflow-y: auto;
 }
 
-/* .tablescroll {
-} */
+.tablescroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tablescroll::-webkit-scrollbar-track {
+  /* background: orange; */
+  border-radius: 15px;
+}
+
+.tablescroll::-webkit-scrollbar-thumb {
+  background-color: rgb(62, 62, 245);
+  border-radius: 7px;
+  /* border: 3px solid orange; */
+}
 
 .tabletitle {
   font-family: Tahoma;
-  color: rgb(17, 104, 180);
+  color: rgb(88, 47, 47);
 }

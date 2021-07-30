@@ -9,12 +9,17 @@
 
 .card {
   margin: 10px auto;
-  /* margin-left: 5%; */
-  /* float: left; */
+  background: #ffffff;
+  /* box-shadow: #f2bd94 0px -23px 25px 0px inset, #f2bd94 0px -36px 30px 0px inset,
+    #f2bd94 0px -79px 40px 0px inset, #f2bd94 0px 2px 1px, #f2bd94 0px 4px 2px,
+    #f2bd94 0px 8px 4px, #f2bd94 0px 16px 8px, #f2bd94 0px 32px 16px; */
+  box-shadow: #f2bd94 0px -23px 25px 0px inset, #f2bd94 0px -36px 30px 0px inset,
+    #f2bd94 0px -79px 40px 0px inset;
   padding: 2px;
   border: 1px solid rgb(121, 121, 121);
   width: 370px;
   height: 100px;
+  border-radius: 5px;
 }
 
 .title {
@@ -55,17 +60,20 @@ a {
 }
 
 .btn {
-  margin-top: 10px;
-  /* margin-right: 155px;
-  margin-left: 150px; */
+  margin-top: 5px;
 }
 
 button {
-  border: 1px solid #3498db;
+  /* border: 1px solid #ffffff; */
+  border: none;
   background-color: transparent;
   cursor: pointer;
   border-radius: 3px;
   padding: 2px;
   float: left;
   margin-right: 5px;
+}
+
+button img {
+  height: 18px;
 }

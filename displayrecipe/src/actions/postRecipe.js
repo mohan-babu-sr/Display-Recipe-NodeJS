@@ -1,5 +1,4 @@
 import api from './api.js';
-import axios from 'axios';
 
 export const ACTION_TYPES = {
   UPDATE: 'UPDATE',
@@ -23,14 +22,16 @@ export const fetchAll = () => dispatch => {
 };
 
 export const update = (id, data) => dispatch => {
-  console.log('request came', id, data);
+  console.log('oldObject', id, data.title);
   api
     .postRecipe()
     .update(id, data)
     .then(res => {
+      // console.log(res.data, id);
       dispatch({
         type: ACTION_TYPES.UPDATE,
         payload: res.data,
+        oldID: id,
       });
     })
     .catch(err => console.log(err));

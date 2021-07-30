@@ -1,0 +1,49 @@
+.monday {
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 60px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.tuesday {
+  margin-left: -60px;
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 190px;
+}
+
+.wednesday {
+  margin-left: -50px;
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 300px;
+}
+
+.thursday {
+  margin-left: -70px;
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 430px;
+}
+
+.friday {
+  margin-left: -60px;
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 550px;
+}
+
+.saturday {
+  margin-left: -40px;
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 670px;
+}
+
+.sunday {
+  margin-left: -55px;
+  color: rgb(251, 255, 0);
+  position: relative;
+  top: 785px;
+}
