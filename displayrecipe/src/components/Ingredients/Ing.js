@@ -16,18 +16,18 @@ const Ing = props => {
   }
 
   return (
-    <div class='container'>
-      <p class='heading'>Ingredients</p>
-      <div class='ingscroll'>
-        <ul class='ks-cboxtags'>
+    <div className='container'>
+      <p className='heading'>Ingredients</p>
+      <div className='ingscroll'>
+        <ul className='ks-cboxtags'>
           {allIngredients.map((data, idx) => {
             return (
-              <li>
+              <li key={idx}>
                 <input type='checkbox' id={idx} value='Rainbow Dash' />
 
-                <label for={idx}>
-                  <div class='checkdata'>
-                    <div class='checktitle'>{data.description}</div>
+                <label htmlFor={idx}>
+                  <div className='checkdata'>
+                    <div className='checktitle'>{data.description}</div>
                     <div>
                       {data.quantity === undefined
                         ? 'Quantity : -'
